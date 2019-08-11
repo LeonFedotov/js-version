@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "acorn": "^6.2.1",
-    "acorn-walk": "^6.2.0"
+    "acorn": "^6.2.1"
   }
 }
