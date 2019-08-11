@@ -2,17 +2,7 @@ const acorn = require('acorn')
 const walk = require('acorn-walk')
 
 const check = (code) =>
-	walk.simple(acorn.parse(code), {
-	  ArrowFunctionExpression() {
-	  	throw new Error('Arrow function')
-	  },
-
-	  VariableDeclaration({ kind }) {
-	  	if(kind == 'const' || kind == 'let') {
-			throw new Error('Variable declaration')
-		}
-	  }
-	})
+	walk.simple(acorn.parse(code, {ecmaVersion: 5}), {})
 
 module.exports = (code = code) => {
 	try {

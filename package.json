@@ -1,5 +1,5 @@
 {
-  "name": "jsversion",
+  "name": "js-version-detector",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
