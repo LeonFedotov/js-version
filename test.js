@@ -13,5 +13,5 @@ const code = `
 
 `
 
-console.log('Checking:', code, 'Res:', check(code))
-console.log('Checking:', `var a = 5`, 'Res:', check(`var a = 5`))
+console.log('Checking:', code, 'Res:', check(code, 5))
+console.log('Checking:', `var a = 5`, 'Res:', check(`var a = 5`, 5))
