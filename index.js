@@ -2,7 +2,7 @@ const acorn = require('acorn')
 const { codeFrameColumns } = require('@babel/code-frame')
 
 expect.extend({
-  toBeOfVersion(received, ecmaVersion = 5) {
+  toBeOfVersion(received, ecmaVersion = 5, showCode = false) {
 
     try {
       acorn.parse(received, {ecmaVersion})
@@ -13,7 +13,7 @@ expect.extend({
     } catch(error) {
       return {
         pass: false,
-        message: () => this.isNot ? 'fail' : codeFrameColumns(received, { start: { line: error.loc.line, column: error.loc.column+1 }}, { highlightCode: true, message: error })
+        message: () => this.isNot ? 'fail' : showCode ? codeFrameColumns(received, { start: { line: error.loc.line, column: error.loc.column+1 }}, { highlightCode: true, message: error }) : error
       }
     }
   }
