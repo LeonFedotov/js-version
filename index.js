@@ -1,12 +1,20 @@
 const acorn = require('acorn')
+const { codeFrameColumns } = require('@babel/code-frame')
 
-const check = (code, ecmaVersion) => acorn.parse(code, {ecmaVersion})
+expect.extend({
+  toBeOfVersion(received, ecmaVersion = 5) {
 
-module.exports = (code, ecmaVersion = 5) => {
-  try {
-    check(code, ecmaVersion)
-    return true
-  } catch(err) {
-    return false
+    try {
+      acorn.parse(received, {ecmaVersion})
+      return {
+        pass: true,
+        message: () => this.isNot ? `fail` : `Js matches provided version: ${ecmaVersion}`
+      }
+    } catch(error) {
+      return {
+        pass: false,
+        message: () => this.isNot ? 'fail' : codeFrameColumns(received, { start: error.loc }, { highlightCode: true, message: error })
+      }
+    }
   }
-}
+})

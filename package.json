@@ -1,9 +1,13 @@
 {
   "name": "js-version-detector",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@babel/code-frame": "^7.5.5",
     "acorn": "^6.2.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
