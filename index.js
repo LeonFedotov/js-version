@@ -13,7 +13,7 @@ expect.extend({
     } catch(error) {
       return {
         pass: false,
-        message: () => this.isNot ? 'fail' : codeFrameColumns(received, { start: error.loc }, { highlightCode: true, message: error })
+        message: () => this.isNot ? 'fail' : codeFrameColumns(received, { start: { line: error.loc.line, column: error.loc.column+1 }}, { highlightCode: true, message: error })
       }
     }
   }
