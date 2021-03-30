@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/code-frame": "^7.5.5",
-    "acorn": "^6.2.1"
+    "acorn": "^6.4.1"
   },
   "devDependencies": {
     "jest": "^24.9.0"
